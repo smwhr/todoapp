@@ -10,8 +10,6 @@ $accompli = false;
 //=> On appelera ce genre de tableau des "task"s dans la suite
 $task = ["title" => $title , "done" => $accompli];
 
-var_dump($task);
-
 // Ex 4 : Créer une fonction `get_status` qui prend en argument une "task" et renvoie l'état d'accomplissement
 
 function get_status($task){
@@ -20,19 +18,20 @@ function get_status($task){
 
 }
 
-var_dump( get_status($task) );
-
 // Ex 5 : Créer un tableau vide dans une variable $todo
 $todo = [];
 
 // Ex 6 : Ajouter la tache $task de l'ex 3 à la fin du tableau $todo
 $todo = [$task];
 
-var_dump($todo);
 // Ex 7 : stocker $todo dans la session (clé "todo")
 
 
 // Ex 8 : écrire une boucle foreach pour faire un var_dump des éléments de $todo
+
+foreach($todo as $t){
+  var_dump($t);
+}
 
 // Ex 9 : Rajouter d'autres éléments du même type que $task à $todo
 $task2 = ["title" => "Lire un livre", "done" => false];
@@ -44,9 +43,11 @@ $todo[] = $task3;
 // OU
 //$todo = [$task, $task2, $task3];
 
-var_dump($todo);
 
 // Ex 8bis : vérifier que la boucle de l'exercice 8 fonctionne toujours
+foreach($todo as $t){
+  var_dump($t);
+}
 
 // Ex 10 : Afficher, dans des <li> les titres des éléments de todo
 
