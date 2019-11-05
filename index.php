@@ -42,7 +42,6 @@
               <ul class="list">
                 <li class="list-item">
                   <?php foreach($recycle as $task):?>
-                  <li class="list-item">
                     <?php echo display_task($task); ?>
                   </li>
                 <?php endforeach;?>

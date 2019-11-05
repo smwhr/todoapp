@@ -33,8 +33,7 @@ if(
   {
           //TODO
     var_dump("I WANT TO MOVE A TASK TO RECYCLE");
-    $enleves = array_splice($todo, 0, 1); // IL SE PASSE UN TRUC BIZARRE ICI
-    $toRecycle = $enleves[0];
-
+    list($toRecycle) = array_splice($todo, 0, 1); // IL SE PASSE UN TRUC BIZARRE ICI
+    $recycle[] = $toRecycle;
 
   }
