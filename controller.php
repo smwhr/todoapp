@@ -23,12 +23,14 @@ if(
        isset($_POST['action']) 
     && $_POST['action'] == "mark_done")
   {
-
+          //TODO
+    var_dump("I WANT TO MARK A TASK AS DONE");
    }
 
   if(
        isset($_POST['action']) 
     && $_POST['action'] == "move_to_recycle")
   {
-
+          //TODO
+    var_dump("I WANT TO MOVE A TASK TO RECYCLE");
    }
