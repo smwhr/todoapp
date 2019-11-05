@@ -27,7 +27,7 @@
                 <?php foreach($todo as $task):?>
                   <li class="list-item">
                     <?php echo display_task($task); ?>
-                    <form class="inline">
+                    <form class="inline" method="POST">
                       <button class="button is-small is-success" name="action" value="mark_done">Fait</button>
                       <button class="button is-small is-danger" name="action" value="move_to_recycle">Supprimer</button>
                     </form>
