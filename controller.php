@@ -23,11 +23,9 @@ if(
        isset($_POST['action']) 
     && $_POST['action'] == "mark_done")
   {
-          //TODO
     $task_number = $_POST["task_number"];
     $todo[$task_number]["done"] = true;
 
-    //on sauvegarde
     $_SESSION["todo"] = $todo;
     
    }
@@ -36,11 +34,25 @@ if(
        isset($_POST['action']) 
     && $_POST['action'] == "move_to_recycle")
   {
-          //TODO
     $task_number = $_POST["task_number"];
 
-    list($toRecycle) = array_splice($todo, $task_number, 1); // IL SE PASSE UN TRUC BIZARRE ICI
+    list($toRecycle) = array_splice($todo, $task_number, 1);
     $recycle[] = $toRecycle;
+
+    //on sauvegarde
+    $_SESSION["todo"] = $todo;
+    $_SESSION["recycle"] = $recycle;
+
+  }
+
+  if(
+       isset($_POST['action']) 
+    && $_POST['action'] == "restore")
+  {
+    $task_number = $_POST["task_number"];
+
+    list($toRestore) = array_splice($recycle, $task_number, 1); 
+    $todo[] = $toRestore;
 
     //on sauvegarde
     $_SESSION["todo"] = $todo;

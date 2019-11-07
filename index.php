@@ -30,7 +30,9 @@
                     <?php echo display_task($task); ?>
                     <form class="inline" method="POST">
                       <input type="hidden" name="task_number" value="<?php echo $rang;?>" />
-                      <button class="button is-small is-success" name="action" value="mark_done">Fait</button>
+                      <?php if (!$task["done"]): ?>  
+                        <button class="button is-small is-success" name="action" value="mark_done">Fait</button>
+                      <?php endif ?>
                       <button class="button is-small is-danger" name="action" value="move_to_recycle">Supprimer</button>
                     </form>
                   </li>
@@ -42,9 +44,14 @@
             <article class="is-child">
               <h3 class="title">Corbeille</h3>
               <ul class="list">
-                  <?php foreach($recycle as $task):?>
+                  <?php foreach($recycle as $rang => $task):?>
                     <li class="list-item">
                       <?php echo display_task($task); ?>
+                      <form class="inline" method="POST">
+                        <input type="hidden" name="task_number" value="<?php echo $rang;?>" />
+                        <button class="button is-small is-warning" name="action" value="restore">Restaurer</button>
+                        
+                      </form>
                     </li>
                 <?php endforeach;?>
                 </li>
