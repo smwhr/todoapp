@@ -28,6 +28,7 @@
                   <li class="list-item">
                     <?php echo display_task($task); ?>
                     <form class="inline" method="POST">
+                      <input type="hidden" name="task_number" value="0" />
                       <button class="button is-small is-success" name="action" value="mark_done">Fait</button>
                       <button class="button is-small is-danger" name="action" value="move_to_recycle">Supprimer</button>
                     </form>
