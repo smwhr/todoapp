@@ -24,11 +24,12 @@
             <article class="is-child">
               <h3 class="title">Ma liste</h3>
               <ul class="list">
-                <?php foreach($todo as $task):?>
+                <?php foreach($todo as $rang => $task):?>
                   <li class="list-item">
+
                     <?php echo display_task($task); ?>
                     <form class="inline" method="POST">
-                      <input type="hidden" name="task_number" value="0" />
+                      <input type="hidden" name="task_number" value="<?php echo $rang;?>" />
                       <button class="button is-small is-success" name="action" value="mark_done">Fait</button>
                       <button class="button is-small is-danger" name="action" value="move_to_recycle">Supprimer</button>
                     </form>
@@ -41,10 +42,10 @@
             <article class="is-child">
               <h3 class="title">Corbeille</h3>
               <ul class="list">
-                <li class="list-item">
                   <?php foreach($recycle as $task):?>
-                    <?php echo display_task($task); ?>
-                  </li>
+                    <li class="list-item">
+                      <?php echo display_task($task); ?>
+                    </li>
                 <?php endforeach;?>
                 </li>
               </ul>

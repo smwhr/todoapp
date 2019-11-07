@@ -24,7 +24,12 @@ if(
     && $_POST['action'] == "mark_done")
   {
           //TODO
-    var_dump("I WANT TO MARK A TASK AS DONE");
+    $task_number = $_POST["task_number"];
+    $todo[$task_number]["done"] = true;
+
+    //on sauvegarde
+    $_SESSION["todo"] = $todo;
+    
    }
 
   if(
@@ -32,12 +37,17 @@ if(
     && $_POST['action'] == "move_to_recycle")
   {
           //TODO
-    var_dump("I WANT TO MOVE A TASK TO RECYCLE");
-    list($toRecycle) = array_splice($todo, 0, 1); // IL SE PASSE UN TRUC BIZARRE ICI
+    $task_number = $_POST["task_number"];
+
+    list($toRecycle) = array_splice($todo, $task_number, 1); // IL SE PASSE UN TRUC BIZARRE ICI
     $recycle[] = $toRecycle;
+
+    //on sauvegarde
+    $_SESSION["todo"] = $todo;
+    $_SESSION["recycle"] = $recycle;
 
   }
 
 
 
-  
+
